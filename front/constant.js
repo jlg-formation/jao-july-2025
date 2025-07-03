@@ -1,4 +1,5 @@
 (function () {
+  "use strict";
   const r0 = 0.5;
   const cx = 50;
   const cy = 50;
@@ -10,7 +11,8 @@
 
   const a = 12;
 
-  this.$multivizConstant = {
+  console.log("this: ", this);
+  globalThis.$multivizConstant = {
     r0,
     cx,
     cy,
