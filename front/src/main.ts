@@ -11,7 +11,7 @@ import {
   lineContainer,
 } from "./constant";
 import { setAttrNbr } from "./utils/setAttrNbr";
-import { getAngle } from "./utils/math";
+import { getAngle, getPointOnCircle } from "./utils/math";
 
 console.log("start");
 
@@ -20,8 +20,7 @@ const multiplicationFactor = 2;
 
 for (let i = 0; i < samples; i++) {
   const angle = getAngle(i, samples, offset);
-  const x = cx + r * Math.cos(angle);
-  const y = cy + r * Math.sin(angle);
+  const { x, y } = getPointOnCircle(angle);
 
   const circle = document.createElementNS(svgns, "circle");
   setAttrNbr(circle, "cx", x);
