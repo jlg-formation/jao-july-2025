@@ -1,6 +1,6 @@
 console.log("start");
 
-const r0 = 1;
+const r0 = 0.5;
 const cx = 50;
 const cy = 50;
 const r = 45;
