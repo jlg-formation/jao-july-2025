@@ -1,3 +1,5 @@
+import "./style.css";
+
 import {
   r0,
   cx,
@@ -7,7 +9,7 @@ import {
   svgns,
   container,
   lineContainer,
-} from "./constant.js";
+} from "./constant";
 
 console.log("start");
 const a = 78;
