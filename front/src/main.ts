@@ -33,16 +33,14 @@ for (let i = 0; i < samples; i++) {
   // trace les droites
 
   const angle1 = getAngle(i, samples, offset);
-  const x1 = cx + r * Math.cos(angle1);
-  const y1 = cy + r * Math.sin(angle1);
+  const p1 = getPointOnCircle(angle1);
 
   const angle2 = getAngle(i * multiplicationFactor, samples, offset);
-  const x2 = cx + r * Math.cos(angle2);
-  const y2 = cy + r * Math.sin(angle2);
+  const { x: x2, y: y2 } = getPointOnCircle(angle2);
 
   const line = document.createElementNS(svgns, "line");
-  setAttrNbr(line, "x1", x1);
-  setAttrNbr(line, "y1", y1);
+  setAttrNbr(line, "x1", p1.x);
+  setAttrNbr(line, "y1", p1.y);
   setAttrNbr(line, "x2", x2);
   setAttrNbr(line, "y2", y2);
   lineContainer.appendChild(line);
