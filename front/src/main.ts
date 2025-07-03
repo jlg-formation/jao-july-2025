@@ -10,6 +10,8 @@ import {
   container,
   lineContainer,
 } from "./constant";
+import { setAttrNbr } from "./utils/setAttrNbr";
+import { getAngle } from "./utils/math";
 
 console.log("start");
 
@@ -17,32 +19,32 @@ const samples = 10;
 const multiplicationFactor = 2;
 
 for (let i = 0; i < samples; i++) {
-  const angle = (i * (2 * Math.PI)) / samples + offset;
+  const angle = getAngle(i, samples, offset);
   const x = cx + r * Math.cos(angle);
   const y = cy + r * Math.sin(angle);
 
   const circle = document.createElementNS(svgns, "circle");
-  circle.setAttributeNS(null, "cx", x + "");
-  circle.setAttributeNS(null, "cy", y + "");
-  circle.setAttributeNS(null, "r", r0 + "");
+  setAttrNbr(circle, "cx", x);
+  setAttrNbr(circle, "cy", y);
+  setAttrNbr(circle, "r", r0);
   container.appendChild(circle);
 }
 
 for (let i = 0; i < samples; i++) {
   // trace les droites
 
-  const angle1 = (i * (2 * Math.PI)) / samples + offset;
+  const angle1 = getAngle(i, samples, offset);
   const x1 = cx + r * Math.cos(angle1);
   const y1 = cy + r * Math.sin(angle1);
 
-  const angle2 = (i * multiplicationFactor * (2 * Math.PI)) / samples + offset;
+  const angle2 = getAngle(i * multiplicationFactor, samples, offset);
   const x2 = cx + r * Math.cos(angle2);
   const y2 = cy + r * Math.sin(angle2);
 
   const line = document.createElementNS(svgns, "line");
-  line.setAttributeNS(null, "x1", x1 + "");
-  line.setAttributeNS(null, "y1", y1 + "");
-  line.setAttributeNS(null, "x2", x2 + "");
-  line.setAttributeNS(null, "y2", y2 + "");
+  setAttrNbr(line, "x1", x1);
+  setAttrNbr(line, "y1", y1);
+  setAttrNbr(line, "x2", x2);
+  setAttrNbr(line, "y2", y2);
   lineContainer.appendChild(line);
 }
