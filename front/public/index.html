@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiviz</title>
+    <link rel="stylesheet" href="front.css" />
+  </head>
+
+  <body>
+    <h1>Multiviz</h1>
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" />
+      <g class="samples"></g>
+      <g class="lines"></g>
+    </svg>
+    <div class="command">
+      <label>
+        <span>Echantillons : <span class="value">xx</span></span>
+        <input type="range" />
+      </label>
+      <label>
+        <span>Facteur de multiplication : <span class="value">xx</span></span>
+        <input type="range" />
+      </label>
+    </div>
+    <script src="front.iife.js"></script>
+  </body>
+</html>

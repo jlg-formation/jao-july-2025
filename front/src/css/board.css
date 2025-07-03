@@ -1,0 +1,25 @@
+svg {
+  width: 50em;
+  height: 20em;
+  border: 0.02em solid black;
+
+  circle {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 0.01em;
+  }
+
+  g.samples {
+    circle {
+      fill: black;
+      stroke: transparent;
+    }
+  }
+
+  g.lines {
+    line {
+      stroke: black;
+      stroke-width: 0.01em;
+    }
+  }
+}
