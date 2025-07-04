@@ -11,7 +11,25 @@ export class Command {
     this.config = config;
 
     this.render();
+    this.setActions();
   }
+
+  setActions() {
+    const sampleSliderElt = $(".command .samples input") as HTMLInputElement;
+    sampleSliderElt.addEventListener("input", () => {
+      this.config.samples = +sampleSliderElt.value;
+      this.render();
+    });
+
+    const mfSliderElt = $(
+      ".command .multiplicationFactor input"
+    ) as HTMLInputElement;
+    mfSliderElt.addEventListener("input", () => {
+      this.config.multiplicationFactor = +mfSliderElt.value;
+      this.render();
+    });
+  }
+
   render() {
     $(".command .samples .value").innerHTML = this.config.samples + "";
     $(".command .multiplicationFactor .value").innerHTML =
