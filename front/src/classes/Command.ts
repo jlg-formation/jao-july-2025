@@ -15,7 +15,7 @@ export class Command {
   }
 
   setActions() {
-    const sampleSliderElt = $(".command .samples input") as HTMLInputElement;
+    const sampleSliderElt = $(".command .samples input", HTMLInputElement);
     sampleSliderElt.addEventListener("input", () => {
       this.config.samples = +sampleSliderElt.value;
       this.render();
@@ -23,8 +23,9 @@ export class Command {
     });
 
     const mfSliderElt = $(
-      ".command .multiplicationFactor input"
-    ) as HTMLInputElement;
+      ".command .multiplicationFactor input",
+      HTMLInputElement
+    );
     mfSliderElt.addEventListener("input", () => {
       this.config.multiplicationFactor = +mfSliderElt.value;
       this.render();
