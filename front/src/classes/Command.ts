@@ -19,6 +19,7 @@ export class Command {
     sampleSliderElt.addEventListener("input", () => {
       this.config.samples = +sampleSliderElt.value;
       this.render();
+      this.callback(this.config);
     });
 
     const mfSliderElt = $(
@@ -27,6 +28,7 @@ export class Command {
     mfSliderElt.addEventListener("input", () => {
       this.config.multiplicationFactor = +mfSliderElt.value;
       this.render();
+      this.callback(this.config);
     });
   }
 
