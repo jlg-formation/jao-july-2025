@@ -1,11 +1,13 @@
 import type { Config } from "../types/Config";
 import { $ } from "../utils/querySelector";
+import { sleep } from "../utils/sleep";
 
 type Callback = (newConfig: Config) => void;
 
 export class Command {
   config: Config;
   callback: Callback = () => {};
+  isPlaying = false;
 
   constructor(config: Config) {
     this.config = config;
@@ -31,6 +33,26 @@ export class Command {
       this.render();
       this.callback(this.config);
     });
+
+    $(".command .play").addEventListener("click", () => {
+      this.isPlaying = !this.isPlaying;
+      this.render();
+      if (this.isPlaying) {
+        this.startPlaying();
+      }
+    });
+  }
+  async startPlaying() {
+    while (this.isPlaying) {
+      await sleep(15);
+      let mf = this.config.multiplicationFactor;
+      mf += 0.01;
+      mf %= 100;
+      mf = +mf.toFixed(2);
+      this.config.multiplicationFactor = mf;
+      this.render();
+      this.callback(this.config);
+    }
   }
 
   render() {
@@ -42,6 +64,8 @@ export class Command {
       this.config.samples + "";
     $(".command .multiplicationFactor input", HTMLInputElement).value =
       this.config.multiplicationFactor + "";
+
+    $(".command .play").innerHTML = this.isPlaying ? "Pause" : "Play";
   }
 
   onConfigChange(callback: Callback) {
