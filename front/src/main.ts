@@ -2,8 +2,9 @@ import "./style.css";
 
 import { Board } from "./classes/Board";
 import { Command } from "./classes/Command";
+import type { Config } from "./types/Config";
 
-const config = {
+const config: Config = {
   samples: 10,
   multiplicationFactor: 2,
 };

@@ -37,9 +37,9 @@ export class Command {
     $(".command .multiplicationFactor .value").innerHTML =
       this.config.multiplicationFactor + "";
 
-    ($(".command .samples input") as HTMLInputElement).value =
+    $(".command .samples input", HTMLInputElement).value =
       this.config.samples + "";
-    ($(".command .multiplicationFactor input") as HTMLInputElement).value =
+    $(".command .multiplicationFactor input", HTMLInputElement).value =
       this.config.multiplicationFactor + "";
   }
 
