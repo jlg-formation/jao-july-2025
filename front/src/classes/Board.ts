@@ -43,4 +43,14 @@ export class Board {
       lineContainer.appendChild(line);
     }
   }
+
+  redraw() {
+    this.clean();
+    this.draw();
+  }
+
+  clean() {
+    container.innerHTML = "";
+    lineContainer.innerHTML = "";
+  }
 }
